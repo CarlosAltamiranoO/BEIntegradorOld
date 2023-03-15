@@ -1,0 +1,73 @@
+[
+  {
+    "id": "f9d28348-a70b-4ad7-89ae-0c2ec36fdcec",
+    "title": "tablet",
+    "description": "tablet samsung",
+    "code": "a5",
+    "price": 100000,
+    "status": true,
+    "stock": 20,
+    "category": "String",
+    "thumbnail": [
+      " "
+    ]
+  },
+  {
+    "id": "e97e298d-0075-4d13-8563-f79e20d3033e",
+    "title": "notebook",
+    "description": "Notebook gamer",
+    "price": 400000,
+    "status": true,
+    "stock": 25,
+    "category": "String",
+    "thumbnail": [
+      " "
+    ]
+  },
+  {
+    "id": "88c4d74c-15f8-4c60-8bc5-679aacc1a590",
+    "title": "PC",
+    "description": "NPC gamer",
+    "price": 200000,
+    "status": true,
+    "stock": 2,
+    "category": "String",
+    "thumbnail": [
+      " "
+    ]
+  },
+  {
+    "id": "9fb48574-f977-47c9-a8c1-c3c9373483d3",
+    "title": "PC2",
+    "description": "NPC gamer",
+    "price": 300000,
+    "status": true,
+    "stock": 9,
+    "category": "gamer",
+    "thumbnail": [
+      " "
+    ]
+  },
+  {
+    "id": "773e4862-4fa3-4b28-9d43-94134ddd1d93",
+    "title": "PC2",
+    "description": "NPC gamer",
+    "price": 300000,
+    "status": true,
+    "stock": 9,
+    "category": "gamer"
+  },
+  {
+    "id": "4be552e4-409a-4922-be28-9282dd956510",
+    "title": "tablet",
+    "description": "tablet samsung",
+    "code": "a5",
+    "price": 100000,
+    "status": true,
+    "stock": 20,
+    "category": "String",
+    "thumbnail": [
+      " "
+    ]
+  }
+]
