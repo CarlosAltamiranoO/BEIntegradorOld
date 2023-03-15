@@ -57,7 +57,7 @@ productsRouter.put('/:pid', async (req, res, next) => {
         const productoReemplazado = await productosManager.reemplazarCosa(req.params.pid, productoNuevo)
         res.json(productoReemplazado)
     } catch (error) {
-        next(error)
+        return next(error)
     }
 })
 

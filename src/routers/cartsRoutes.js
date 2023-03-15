@@ -11,9 +11,13 @@ const carritoManager = new FileManager('dataBase/carritos.json');
 const productosManager = new FileManager('dataBase/productos.json');
 
 
-cartsRouter.get('/:cid', async (req, res) => {
+cartsRouter.get('/:cid', async (req, res, next) => {
+    try {
     const carrito = await carritoManager.buscarCosaSegunId(req.params.cid)
     res.json(carrito)
+} catch (error) {
+    next(error)
+}
 })
 
 cartsRouter.post('/', async (req, res, next) => {
