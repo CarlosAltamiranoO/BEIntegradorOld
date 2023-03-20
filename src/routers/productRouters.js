@@ -44,13 +44,10 @@ productsRouter.post('/', async (req, res, next) => {
 productsRouter.put('/:pid', async (req, res, next) => {
     let productoNuevo
     try {
-        productoNuevo = new Producto({
-            id: req.params.pid,
-            ...req.body
-        })
+        productoNuevo = await productosManager.buscarCosaSegunId(req.params.pid)
+        productoNuevo = {...productoNuevo , ...req.body}
     } catch (error) {
         next(error)
-        return
     }
 
     try {

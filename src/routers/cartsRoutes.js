@@ -22,10 +22,7 @@ cartsRouter.get('/:cid', async (req, res, next) => {
 
 cartsRouter.post('/', async (req, res, next) => {
     try {
-        const carrito = new Carrito(
-            randomUUID(),
-            req.body
-        )
+        const carrito = new Carrito( randomUUID(), [] )
         const agregado = await carritoManager.guardarCosa(carrito)
         res.json(agregado)
     } catch (error) {
