@@ -28,5 +28,11 @@ class CartsManager {
         }
 
     }
+    async actulizarXId(id, array){
+        const actulizar = await this.cartsDB.findByIdAndUpdate(id, {$set:{productos:array}}, {new: true})
+        console.log(actulizar)
+        return actulizar
+
+    }
 }
 export const cartsManager = new CartsManager()

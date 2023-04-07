@@ -22,8 +22,13 @@ class ProductManager{
         return prLista
     }
     async obtenerSegunId(id){
+        try{
         const prXId = await this.productosDB.findById(id).lean()
         return prXId
+        }
+        catch(err){
+            return null
+        }
     }
 }
 export const productManager = new ProductManager()
