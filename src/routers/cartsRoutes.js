@@ -1,4 +1,5 @@
 import express, { Router } from "express";
+import { cartsManager } from '../dao/cartsManager.js'
 /* import { FileManager } from "../dao/FileManager.js";
 import { randomUUID } from 'crypto';
 import { Carrito } from "../entidades/Carrito.js"; */
@@ -8,6 +9,27 @@ export const cartsRouter = Router()
 
 /* const carritoManager = new FileManager('dataBase/carritos.json');
 const productosManager = new FileManager('dataBase/productos.json'); */
+cartsRouter.get('/', (req, res, next) => {  // hacer el get para mostrar lista y opcion de agregar producto
+    res.render('cargarCarrito', { pageTitle: "cargar carrito" })
+})
+
+cartsRouter.post('/', async (req, res, next) => {
+    const datosC = req.body;
+    console.log(datosC)
+    const result = await cartsManager.guardar({ productos: [datosC] });
+    console.log(result);
+    res.json(result);
+})
+
+cartsRouter.get('/:cid', async (req, res, next) => {
+    const carritos = await cartsManager.obtenerSegunId(req.params.cid)
+    const carrito= JSON.stringify( carritos.productos)
+    res.render('idCarrito', {
+        pageTitle: "Pcarrito por id",
+        carrito,
+    })
+})
+
 
 
 

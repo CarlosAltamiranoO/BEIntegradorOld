@@ -1,12 +1,12 @@
 import mongoose from 'mongoose';
 
 const schemaCarts = new  mongoose.Schema({
-    productos: {type: Array , required: true}
+    productos: {type: Array ,}
 }, {versionKey: false})
 
-class ProductManager{
+class CartsManager{
     constructor(){
-        this.cartsDB = mongoose.model('productos', schemaCarts)
+        this.cartsDB = mongoose.model('carts', schemaCarts)
     }
     async guardar(datosPr){
         const prGuardados = await this.cartsDB.create(datosPr)
@@ -21,4 +21,4 @@ class ProductManager{
         return prXId
     }
 }
-export const productManager = new ProductManager()
+export const cartsManager = new CartsManager()
