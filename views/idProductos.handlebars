@@ -1,0 +1,9 @@
+
+<h3>producto</h3><br>
+{{#if producto}}
+<ul>
+    <li>Titulo: {{producto.title}} | Desripcion : {{producto.description}} | codigo: {{producto.code}} | Precio: {{producto.price}} | Categoria: {{producto.category}} | Stock: {{producto.stock}} </li><br>
+</ul>
+{{else}}
+<p>no hay producto para mostrar</p> 
+{{/if}}

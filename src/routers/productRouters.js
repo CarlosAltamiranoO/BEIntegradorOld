@@ -1,15 +1,45 @@
 import express, { Router } from "express";
-import { FileManager } from "../FileManager.js";
-import { Producto } from "../Producto.js";
-import { randomUUID } from 'crypto'
+import { postProductController, getProductController, getProductIdController } from '../controllers/ProductController.js';
+/* import { FileManager } from "../dao/FileManager.js";
+import { Producto } from "../entidades/Producto.js";
+import { randomUUID } from 'crypto'; */
+//import { productosDB } from "../dao/models/mongooseProductos.js";
 
 export const productsRouter = Router();
+/* const productosManager = new FileManager('dataBase/productos.json'); */
 
-productsRouter.use(express.json())
 
-const productosManager = new FileManager('dataBase/productos.json');
+productsRouter.get('/', (req, res, next) => {  // hacer el get para mostrar lista y opcion de agregar producto
+    res.render('cargaProductos', { pageTitle: "cargar productos" })
+})
+productsRouter.get('/list', getProductController)
+productsRouter.post('/', postProductController)
+productsRouter.get('/:id',getProductIdController)
 
-productsRouter.get('/', async (req, res, next) => {
+
+
+/* productsRouter.get('/list', async (req, res, next) => {
+    const productos = await productosDB.find().lean()
+    res.render('listaProductos', {
+        pageTitle: "listar Productos",
+        hayProductos: productos.length > 0,
+        productos,
+    })
+
+}) */
+/* productsRouter.post('/', async (req, res, next) =>{// hacer el post para agregar producto
+    //console.log(req.body)
+    const datosP = req.body
+    const result = await productosDB.create(datosP)
+    console.log(result)
+    res.json(result) 
+}) */
+
+
+
+
+
+/* productsRouter.get('/', async (req, res, next) => {
     try {
         const productos = await productosManager.buscarCosas()
         res.json(productos)
@@ -17,7 +47,6 @@ productsRouter.get('/', async (req, res, next) => {
         next(error)
     }
 })
-
 productsRouter.get('/:pid', async (req, res, next) => {
     try {
         const producto = await productosManager.buscarCosaSegunId(req.params.pid)
@@ -26,7 +55,6 @@ productsRouter.get('/:pid', async (req, res, next) => {
         next(error)
     }
 })
-
 productsRouter.post('/', async (req, res, next) => {
     try {
         const producto = new Producto({
@@ -40,7 +68,6 @@ productsRouter.post('/', async (req, res, next) => {
         next(error)
     }
 })
-
 productsRouter.put('/:pid', async (req, res, next) => {
     let productoNuevo
     try {
@@ -57,7 +84,6 @@ productsRouter.put('/:pid', async (req, res, next) => {
         return next(error)
     }
 })
-
 productsRouter.delete('/:pid', async (req, res, next) => {
     try {
         const borrada = await productosManager.borrarCosaSegunId(req.params.pid)
@@ -65,4 +91,4 @@ productsRouter.delete('/:pid', async (req, res, next) => {
     } catch (error) {
         next(error)
     }
-})
+}) */

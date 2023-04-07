@@ -1,17 +1,30 @@
 import express, { Router } from "express";
-import { FileManager } from "../FileManager.js";
+/* import { FileManager } from "../dao/FileManager.js";
 import { randomUUID } from 'crypto';
-import { Carrito } from "../Carrito.js";
+import { Carrito } from "../entidades/Carrito.js"; */
 
 
-export const cartsRouter = Router();
-cartsRouter.use(express.json())
+export const cartsRouter = Router()
 
-const carritoManager = new FileManager('dataBase/carritos.json');
-const productosManager = new FileManager('dataBase/productos.json');
+/* const carritoManager = new FileManager('dataBase/carritos.json');
+const productosManager = new FileManager('dataBase/productos.json'); */
 
 
-cartsRouter.get('/:cid', async (req, res, next) => {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* cartsRouter.get('/:cid', async (req, res, next) => {
     try {
     const carrito = await carritoManager.buscarCosaSegunId(req.params.cid)
     res.json(carrito)
@@ -48,5 +61,5 @@ cartsRouter.post('/:cid/product/:pid', async (req, res, next) => {
     } catch (error) {
         next(error)
     }
-})
+}) */
 

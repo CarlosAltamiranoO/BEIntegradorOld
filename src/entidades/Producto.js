@@ -12,4 +12,5 @@ export class Producto{
         this.category = category
         if (thumbnail)this.thumbnail = thumbnail; else this.thumbnail=[];
     }
+
 }
