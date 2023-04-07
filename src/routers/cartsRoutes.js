@@ -22,8 +22,7 @@ cartsRouter.post('/', async (req, res, next) => {
 })
 
 cartsRouter.get('/:cid', async (req, res, next) => {
-    const carritos = await cartsManager.obtenerSegunId(req.params.cid)
-    const carrito= JSON.stringify( carritos.productos)
+    const carrito = await cartsManager.obtenerSegunId(req.params.cid)
     res.render('idCarrito', {
         pageTitle: "Pcarrito por id",
         carrito,
